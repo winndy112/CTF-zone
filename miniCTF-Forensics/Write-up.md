@@ -11,7 +11,7 @@ Link file challenge: [https://github.com/ik-nown/Write_up_CTF/tree/main/miniCTF]
 
 Đề cho chúng ta một file ảnh png bị corrupt.
 
-![Untitled](MiniCTF%20-%20Forensics%2090f9ad491a004b7c98bc41b09232b012/Untitled.png)
+![Untitled](image/Untitled.png)
 
 Sau khi kiểm tra thì bị lỗi ở chunk `IHDR,` kích thước của ảnh không phù hợp ( ở đây là 0x0 ), chúng ta không thể dự đoán chính xác chiều cao và chiều rộng của ảnh được nên dựa vào checksum của chunk ihdr để bruteforce. 
 
@@ -19,7 +19,7 @@ Và  mình cũng tìm được script trên mạng hỗ trợ mình làm điều
 
 [https://github.com/cjharris18/png-dimensions-bruteforcer](https://github.com/cjharris18/png-dimensions-bruteforcer)
 
-![Output image](MiniCTF%20-%20Forensics%2090f9ad491a004b7c98bc41b09232b012/output.png)
+![Output image](image/output.png)
 
 Output image
 
@@ -41,13 +41,13 @@ In case you forgot, here is the MD5 hash of our secret password: d2efec63ee8ddb3
 
 Dùng [crackstation](https://crackstation.net/) để crack.
 
-![Password = sweetdreams](MiniCTF%20-%20Forensics%2090f9ad491a004b7c98bc41b09232b012/Untitled%201.png)
+![Password = sweetdreams](image/Untitled%201.png)
 
 Password = sweetdreams
 
 Trong file pcap ta có:
 
-![Untitled](MiniCTF%20-%20Forensics%2090f9ad491a004b7c98bc41b09232b012/Untitled%202.png)
+![Untitled](image/Untitled%202.png)
 
 File `hihihaha.7z` đã được GET thành công, mình sẽ export file này ra.
 
@@ -209,7 +209,7 @@ Nhưng trước đó thì mình cần dumpfile tailieuhoctap.txt đã bị mã h
 vol -f chal.raw windows.dumpfiles.DumpFiles --virtaddr 0x858627107100
 ```
 
-![PowerShell decrypt file](MiniCTF%20-%20Forensics%2090f9ad491a004b7c98bc41b09232b012/Screenshot_2023-07-22_163029.png)
+![PowerShell decrypt file](image/Screenshot_2023-07-22_163029.png)
 
 PowerShell decrypt file
 
@@ -244,7 +244,7 @@ Những packets có direction of endpoint là IN sẽ truyền data từ device 
 
 Vậy dựa vào thông tin gì để mình biết đây keyboard hay mouse hay bất kì thiết bị nào khác?
 
-![Untitled](MiniCTF%20-%20Forensics%2090f9ad491a004b7c98bc41b09232b012/Untitled%203.png)
+![Untitled](image/Untitled%203.png)
 
 Chúng ta có 3 device address là 4, 5 và 6 tương ứng là 3 packets DESCRIPTOR CONFIGRATION
 
@@ -268,7 +268,7 @@ cat data.txt | sed 's/../:&/g2' > data_changed.txt
 
 Tuy nhiên script này có một lỗi nho nhỏ nên ra flag sai. 
 
-![Untitled](MiniCTF%20-%20Forensics%2090f9ad491a004b7c98bc41b09232b012/Untitled%204.png)
+![Untitled](image/Untitled%204.png)
 
 Mình chỉnh code lại xíu như này thì ra đúng hơn:
 
