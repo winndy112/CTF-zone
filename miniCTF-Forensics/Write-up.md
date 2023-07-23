@@ -134,7 +134,7 @@ Như mô tả của đề bài, mình tìm được tiến trình chạy excel g
 
 Để xem file excel này đã mã hóa tài liệu của bạn ấy như thế nào, thì mình cần phải lấy ra file đó trước đã.
 
-Nếu xem cmline thì mình biết được tên file excel 
+Nếu xem cmdline thì mình biết được tên file excel 
 
 ```
 7216	EXCEL.EXE	"C:\Program Files\Microsoft Office\Root\Office16\EXCEL.EXE" "C:\Users\robbet8791\Documents\Laid_Off_JULY_2023.xls"
@@ -156,7 +156,7 @@ Mở file thì có thể thấy là file này được chèn marco để tự đ
 
 Mình sẽ dùng `oletools` cụ thể là `olevba` để extract marco từ file này.
 
-Marco được code bằng ngôn ngữ VBA ((Virtual Basic for Applications) 
+Marco được code bằng ngôn ngữ VBA (Virtual Basic for Applications) 
 
 ```visual-basic
 Sub Workbook_Open()
