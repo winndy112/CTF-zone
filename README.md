@@ -1,5 +1,4 @@
-# Write_up_CTF
-## Write-up for CTF challenges.
+#Write-up for CTF challenges.
 This is just a backup file of WU, I wrote on the notion.
 ## If you are interested:
 > [miniCTF - Forensics](https://-vert-.notion.site/MiniCTF-Forensics-90f9ad491a004b7c98bc41b09232b012)
