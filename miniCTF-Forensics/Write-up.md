@@ -404,5 +404,3 @@ print(read_use("D:\\CTF\\miniCTF\\attachment\\data_changed.txt"))
 > 
 > WU: [https://teamrocketist.github.io/2017/08/29/Forensics-Hackit-2017-USB-ducker/](https://teamrocketist.github.io/2017/08/29/Forensics-Hackit-2017-USB-ducker/)
 > 
-
-[https://github.com/ik-nown/Write_up_CTF/tree/main/miniCTF](https://github.com/ik-nown/Write_up_CTF/tree/main/miniCTF)
