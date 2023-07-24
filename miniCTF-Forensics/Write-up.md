@@ -56,7 +56,7 @@ File [client.py](http://client.py) chỉ có hàm check ip, mode với hàm đ�
 Còn trong file `processing.send,` từ code này thực thi sẽ gửi một yêu cầu ping đến ip target, với payload
 
 ```python
-				data = self.Enc(inp, secret)
+	data = self.Enc(inp, secret)
         rand1 = os.urandom(16)
         rand2 = os.urandom(16)
         payload = rand1+data+rand2
@@ -96,7 +96,6 @@ with open(r"D:\CTF\miniCTF\sweetdreams\temp.txt", "r") as file:
         cp = bytearray.fromhex(tmp)
         for i in range(len(cp)):
             xor = cp[i] ^ ord(secret[i % len(secret)])
-    #print(cp[i])
             result.append(xor)
         line = file.readline()
 res="".join(chr(i) for i in result)
@@ -106,7 +105,7 @@ print(flag)
 
 Ouput: 
 
-```python
+```
 hello Phantomhello CipherPlease becareful, there's an detective nearbyI knew, that's why you and I are using this to transfer messageyeah, btw here's your requested document: https://dis.cord.gift/thank youyour welcomeW1{mak1ng_Ch4lL3nges_!s_TIreD-bR0_:(}
 ```
 
@@ -134,7 +133,7 @@ Như mô tả của đề bài, mình tìm được tiến trình chạy excel g
 
 Để xem file excel này đã mã hóa tài liệu của bạn ấy như thế nào, thì mình cần phải lấy ra file đó trước đã.
 
-Nếu xem cmdline thì mình biết được tên file excel 
+Trong khi xem cmdline thì mình biết được tên file excel 
 
 ```
 7216	EXCEL.EXE	"C:\Program Files\Microsoft Office\Root\Office16\EXCEL.EXE" "C:\Users\robbet8791\Documents\Laid_Off_JULY_2023.xls"
@@ -158,7 +157,7 @@ Mình sẽ dùng `oletools` cụ thể là `olevba` để extract marco từ fil
 
 Marco được code bằng ngôn ngữ VBA (Virtual Basic for Applications) 
 
-```visual-basic
+```
 Sub Workbook_Open()
     Dim shell As Object
     Dim flag_here As String
@@ -201,11 +200,11 @@ $aesManaged.Key = $shaManaged.ComputeHash([System.Text.Encoding]::UTF8.GetBytes(
 
 Marco này sẽ download hàm Invoke-AESEncrypt từ link, mã hóa tệp “tailieuhoctap.txt” bằng AES CBC mode với Key là `Wr1t3_L33t_Str1n9_W1th_32_Ch4rz!` 
 
-Do  trong Invoke-AESEncrypt có option Decrypt nên  mình sẽ dùng cmd như cmd lúc enc để giải mã tệp.
+Do  trong Invoke-AESEncrypt có option Decrypt nên  mình sẽ dùng cmdline như cmdline lúc enc để giải mã tệp.
 
 Nhưng trước đó thì mình cần dumpfile tailieuhoctap.txt đã bị mã hóa ra.
 
-```bash
+```
 vol -f chal.raw windows.dumpfiles.DumpFiles --virtaddr 0x858627107100
 ```
 
