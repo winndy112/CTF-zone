@@ -135,7 +135,7 @@ Output: crypto{9467,2742}
 
 `QA = (815, 3190)`, `nB = 1829`
 
-Theo như Elliptic Curve Discrete Logarithm Problem (ECDLP), thì giữa Alice và Bob khi trao đổi với nhau sẽ làm như sau:
+Theo như ECDSA, thì giữa Alice và Bob khi trao đổi với nhau sẽ làm như sau:
 
 Alice chọn cho mình nA ngẫu nhiên và tính QA= nA.G ( G cho trước)
 
