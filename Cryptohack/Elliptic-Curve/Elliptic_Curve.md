@@ -4,6 +4,11 @@
 
 Đọc đến cuối cùng, câu hỏi là `Property (d) shows that point addition is commutative. The flag is the name we give groups with a commutative operation.`
 
+(a) P + O = O + P = P
+(b) P + (−P) = O
+(c) (P + Q) + R = P + (Q + R)
+(d) P + Q = Q + P
+
 đáp án là crypto{abelian}
 
 # Starter
