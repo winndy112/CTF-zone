@@ -663,3 +663,53 @@ int __cdecl main(int argc, const char **argv, const char **envp)
   return 0;
 }
 ```
+
+Flow chương trình là đọc file flag và lưu vào unk_405900.
+Sau đó là hàm Encrypt nội dung đọc từ file flag, và cuối cùng là ghi vào file tmp.enc với dưới dạng hex theo fomat "0X{hex}"
+Sau đây là srcipt xử lý chuỗi hex từ file tmp.enc để tìm nội dung file flag.
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+    char tmp[] = "299B 244D 3594 2759 45A 244B 458 28AD 2FDE 2FE5 2714 44D 271B 244C 38B3 46B 459 2731 2EC7 2B51 2FF7 38C5 458 36D7 2467 3250 293E 2496 2E34 27AE 45C 2A16 24A0 3630 27B8 426 24A8 42A 2956 3000 3002 26FE 434 2702 24B8 3912 47C 43E 27D4 2F38 2BDE 3018 3920 44A 3746 24CE 32C2 297C 24D4 2E72 27EC 49A 2A54 24DE 366E 27F6 464 24E6 468 2994 303E 3040 273C 472 2740 24F6 3950 4BA 47C 2812 2F76";
+    int i;
+    unsigned int flag[81];
+    unsigned char Str[] = "have a good day! enjoy wargame!"; 
+    char *token;
+    char *delimiter = " "; 
+		int len = sizeof(Str);
+    token = strtok(tmp, delimiter);
+    i = 0;
+    while (token != NULL && i < len) {
+        // Chuyển đổi hexa thành số nguyên và lưu vào mảng flag
+        flag[i] = strtoul(token, NULL, 16);
+        i++;
+
+        token = strtok(NULL, delimiter);
+    }
+
+    unsigned int v4;
+    unsigned int v3;
+    unsigned int v1;
+    
+
+    for (i = 0; i < len; i++) {
+        v4 = flag[i] - i;
+        //printf("%c",Str[i % len_] );
+        v3 = v4 + Str[i % len];
+        v1 = (Str[i % len] * Str[i % len] + i) ^ v3;
+        flag[i] = v1;
+       
+    }
+    for (i = 0; i< len; i++) {
+        printf("%c", flag[i]);
+    }
+    
+    return 0;
+}
+// code hơi dài, có thể tinh chỉnh để gọn hơn. (nhưng mà mình lười quá)
+// output:Congratulation!-you_got_itΦ
+```
