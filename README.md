@@ -1,1 +1,1 @@
-# Write-up for CTF challenges.
+# Store backup for write-up CTF.
